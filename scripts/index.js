@@ -18,12 +18,12 @@ for(let i =0; i<tabuleiro.length;i++){
     }
     Todotabuleiro.appendChild(tabuleiroLinha)
 }
-
+/*
 let vermelho = document.createElement("div")
-red.setAttribute("class", "red")
+vermelho.setAttribute("class", "red")
 
 let azul = document.createElement("div")
-blue.setAttribute("class", "red")
+azul.setAttribute("class", "red")
 
 let atual = vermelho
 let proximo = azul
@@ -31,16 +31,17 @@ let proximo = azul
 let discosVermelhos = []
 let discosPretos = []
 let discosTotais = []
+*/
 
 const columns = document.querySelectorAll(".tabuleiro-divs__column")
-for(let i = 0; i < columns.length; i++) {
-    columns[i].addEventListener("click", handle)
-    console.log(columns[i])
+for(let i in columns) {
+    console.log(i)
 }
 
-const handle = function(event) {
+function handle (event) {
     console.log("ok")
 }
+
 // const cells = document.querySelector("#tabuleiro-divs")
 // console.log(cells)
 
@@ -53,5 +54,3 @@ const handler = function(event) {
 }
 */
 
-cells.addEventListener("click", function() {
-})
