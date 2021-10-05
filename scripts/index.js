@@ -1,7 +1,9 @@
+let somaA = 0;
+let somaB = 0 
 let tabuleiro= 
 [
-'      ',
-'      ', 
+'a     ',
+' a    ', 
 '      ',
 '      ',
 '      ',
@@ -22,15 +24,14 @@ for(let i =0; i<tabuleiro.length;i++){
  Todotabuleiro.appendChild(tabuleiroLinha)
 }
  function victoryDD(){
-     //Criar um loop que percorra os arrays
-    //Descobrir os valores nas diagonais com base no valor das variabveis d oloop 
+  
    for(let i =0; i<tabuleiro.length;i++){
-       let tabuleiroLine = tabuleiro[i]
-       for(let j = 0; j< tabuleiroLine.length;i++){
-         if(tabuleiro[i][j] === ' '){
-         console.log(tabuleiro[i][j])
+       for(let j = 0; j< tabuleiro[i].length;j++){
+         if(tabuleiro[i][j] === 'a' && tabuleiro[i]+1[j]+1){
+             console.log('banana')
+         }
         }
-     }
+     
     }
-}
+ }
 victoryDD()
