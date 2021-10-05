@@ -1,11 +1,13 @@
 
-let tabuleiro = ['      ',
+let tabuleiro =
+ [
     '      ',
     '      ',
     '      ',
-    '      ',
-    '      ',
-    '      ',]
+    '   1  ',
+    '  1   ',
+    ' 1    ',
+    '1     ',]
 
 
 const JOGADORES = {"jogador1": "", "jogador2": ""}
@@ -110,22 +112,42 @@ function vitoriaVertical(tabuleiro){
 let soma1 = 0; 
 let soma2 = 0 
 
- function victoryDD(){
+function victoryDD(){
   
-   for(let i =0; i<tabuleiro.length;i++){
-       for(let j = 0; j< tabuleiro[i].length;j++){
-         if(tabuleiro[i][j] === '1'){
-           soma1+=1
-           if(tabuleiro[i]+2[j]+2 === '1'){
+ for(let i = 5; i>=tabuleiro.length;i--){
+      for(let j = 0; j< tabuleiro[i].length;j++){
+       if(tabuleiro[i][j] === '1'){
+         console.log('v1')
+         soma1+=1
+         if(tabuleiro[i]-1[j]+1 === '1'){
+          console.log('v2')
+            soma1+=1
+            if(tabuleiro[i]+2[j]+2 === '1'){
+              console.log('v3')
              soma1+=1
-             if(tabuleiro[i]+3[j]+3 === '1'){
-               soma1+=1
-             }
-           }
-
+             if(tabuleiro[i]+3 [j]+3 === '1')
+                console.log('jogador 1 venceu')
+                else{soma1 = 0;}
+              }
+              
+            }
           }
-     
-    }
- }
+        
+        if(tabuleiro[i][j] === '2'){
+           soma2+=1
+          if(tabuleiro[i]-1[j]-1 === '2'){
+            soma2+=1
+            if(tabuleiro[i]-2[j]-2=== '2'){
+             soma2+=1
+             if(tabuleiro[i]-3 [j]-3 === '2')
+                console.log('jogador 2 venceu')
+              }
+              else{soma2=0}
+            }
+          }
+        }
+        
+      }      
+}
 victoryDD()
 
