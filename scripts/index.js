@@ -8,8 +8,19 @@ let tabuleiro = ['      ',
 
 
 const JOGADORES = {"jogador1": "", "jogador2": ""}
-
+let JOGADOR_ATUAL = "";
 const Todotabuleiro = document.getElementById('tabuleiro-divs')
+
+
+Todotabuleiro.addEventListener("click", (event) => {
+    if(event.target.tagName === "DIV"){
+        let section = event.target.closest("section");
+        jogar(section);
+    }
+})
+
+
+
 
 document.querySelector(".startSection--jogadores").addEventListener("click", (event) => {
     let option
@@ -50,12 +61,49 @@ document.querySelector(".startSection--jogadores").addEventListener("click", (ev
 
 document.querySelector(".startSection button").addEventListener("click", () => {
     if(JOGADORES["jogador1"] !== ""){
+        JOGADOR_ATUAL = "jogador1"
+        let txtJogador = document.querySelector(".jogador")
+        txtJogador.innerHTML = `Jogue: ${JOGADOR_ATUAL} <div class="${JOGADORES[JOGADOR_ATUAL]}"></div>`
         start()
     }
 })
 
 
 
+
+
+function jogar(section){
+    for(let x = section.children.length-1; x >= 0; x--){
+        let disco = section.children[x].firstElementChild
+
+        if(disco === null){
+            disco = document.createElement("div")
+            disco.classList.add(JOGADORES[JOGADOR_ATUAL])
+            section.children[x].appendChild(disco)
+
+            let i = [...Todotabuleiro.children].indexOf(section)
+            let j = (JOGADOR_ATUAL === "jogador1")? "A" : "B"
+
+            let linha = tabuleiro[i].split("")
+            linha.splice(x, 1, j)
+            tabuleiro[i] = linha.join("")
+
+            if(JOGADOR_ATUAL === "jogador1"){
+                JOGADOR_ATUAL = "jogador2"
+            } else{
+                JOGADOR_ATUAL = "jogador1"
+            }
+
+            let txtJogador = document.querySelector(".jogador")
+            txtJogador.innerHTML = `Jogue: ${JOGADOR_ATUAL} <div class="${JOGADORES[JOGADOR_ATUAL]}"></div>`
+            break
+        }
+
+        if(x === 0){
+            alert("Coluna Cheia! Tente em outra")
+        }
+    }
+}
 
 function start(){
     const sectionStart = document.querySelector(".startSection")
@@ -106,6 +154,7 @@ function vitoriaVertical(tabuleiro){
     }
     return false;
 }
+
 function vitoriaDiagonalEsquerda(){
     let sections = Todotabuleiro.children
     
@@ -131,6 +180,5 @@ function vitoriaDiagonalEsquerda(){
             }
         }
     }
-
     return false;
 }
