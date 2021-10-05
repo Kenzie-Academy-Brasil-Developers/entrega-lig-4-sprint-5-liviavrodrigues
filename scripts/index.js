@@ -54,6 +54,7 @@ document.querySelector(".startSection button").addEventListener("click", () => {
     }
 })
 
+
 function start(){
     const sectionStart = document.querySelector(".startSection")
     sectionStart.style.display = "none";
@@ -70,29 +71,7 @@ function start(){
     }
 }
 
-/* Não funciona
-let colunas = document.querySelectorAll(".tabuleiro-divs__column")
-colunas.forEach(coluna => coluna.addEventListener("click", (e) => {
-    jogar()
-}))
-*/
-/* Não funciona
-tabuleiroLinha.addEventListener("click", () => {
-    jogar()
-})
-*/ 
-/* Não funciona
-let colunas = document.querySelectorAll(".tabuleiro-divs__column").addEventListener("click", () => {
-    jogar()
-}) */
 
-/* 
-Funciona
-
-Todotabuleiro.addEventListener("click", () => {
-    jogar()
-})
-*/
 
 function vitoriaVertical(tabuleiro){
     let jogA = "a"
@@ -128,6 +107,35 @@ function vitoriaVertical(tabuleiro){
     return false;
 }
 
+function vitoriaDiagonalEsquerda(){
+    let sections = Todotabuleiro.children
+    
+    for(let x = sections.length-1; x >= 3; x--){
+        let filhosSec = sections[x].children
+
+        for(let y = filhosSec.length-1; y >= 3; y--){
+            if(filhosSec[y].firstElementChild !== undefined){
+                let disco = filhosSec[y].firstElementChild
+
+                for(let z = 1; z < 4; z++){
+                    let outroDisco = sections[x-z].children[y-z].firstElementChild
+
+                    if(outroDisco === null){
+                        break
+                    } else if(outroDisco.className !== disco.className){
+                        break
+                    }
+                    if(z === 3){
+                        return true
+                    }
+                }
+            }
+        }
+    }
+    return false
+}
+
+
 function vitoriaHorizontal () {
     let jogA = "a"
     let jogB = "b"
@@ -150,6 +158,9 @@ function vitoriaHorizontal () {
         }
     } return false
 }
+
+
+
 /* Outra alternativa
 function vitoriaHorizontal () {
     let jogA = "a"
@@ -163,14 +174,16 @@ function vitoriaHorizontal () {
                 if(somaJogadorA === 4) {
                     return true
                 } 
-            } if (tabuleiro[j][i] === jogB) {
+            } 
+            if (tabuleiro[j][i] === jogB) {
                 somaJogadorB++
                 if(somaJogadorB === 4) {
                     return true
                 }
             }
-        }
+         }
     }
-    return false
+                
+    return false;
 }
 */

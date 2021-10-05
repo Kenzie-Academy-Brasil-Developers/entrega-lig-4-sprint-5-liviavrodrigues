@@ -22,15 +22,18 @@ article#tabuleiro-divs{
 section.tabuleiro-divs__column{
    width: 40px;
    height: 240px;
+   display: flex;
+   flex-direction: column;
 }
 
 div.tabuleiro-divs__divs{
-   width:40px;
+   width: 40px;
    height: 40px;
-   border:2px solid black;
-   background-color: aqua;
    display: flex;
-   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   border: 2px solid black;
+   background-color: aqua;
 }
 
 footer {
@@ -44,7 +47,7 @@ footer {
 #footer-content {
     background-color: #ccc;
     border: 1px solid #6b6d7c;
-    font-size: 10 px;
+    font-size: 10px;
     height: 25px; 
     padding-top: 8px;
 }
@@ -103,18 +106,15 @@ main .startSection--option{
     border: 1px solid gray;
     border-radius: 10px;
 }
-main .startSection--option div{
+.option--red{
+    background-color: rgb(173, 0, 0);
     width: 30px;
     height: 30px;
     border-radius: 50%;
 }
-main .startSection--option .option--red{
-    background-color: rgb(173, 0, 0);
-}
-main .startSection--option .option--black{
+.option--black{
     background-color: black;
-}
-main .select--option{
-    border-color: rgb(0, 0, 122);
-    background-color: lightblue;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
