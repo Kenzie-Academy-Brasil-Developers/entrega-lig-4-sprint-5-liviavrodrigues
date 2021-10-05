@@ -1,3 +1,4 @@
+
 let tabuleiro = ['      ',
     '      ',
     '      ',
@@ -104,3 +105,27 @@ function vitoriaVertical(tabuleiro){
     }
     return false;
 }
+//
+// ONDE '1' REPRESENTA O JOGADOR 1, E '2', O JOGADOR 2
+let soma1 = 0; 
+let soma2 = 0 
+
+ function victoryDD(){
+  
+   for(let i =0; i<tabuleiro.length;i++){
+       for(let j = 0; j< tabuleiro[i].length;j++){
+         if(tabuleiro[i][j] === '1'){
+           soma1+=1
+           if(tabuleiro[i]+2[j]+2 === '1'){
+             soma1+=1
+             if(tabuleiro[i]+3[j]+3 === '1'){
+               soma1+=1
+             }
+           }
+
+          }
+     
+    }
+ }
+victoryDD()
+
