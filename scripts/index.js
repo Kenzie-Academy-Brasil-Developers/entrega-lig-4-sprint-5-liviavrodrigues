@@ -18,25 +18,40 @@ for(let i =0; i<tabuleiro.length;i++){
     }
     Todotabuleiro.appendChild(tabuleiroLinha)
 }
-/*
-let atual = "vermelho"
-let proximo = "preto"
+
+let vermelho = document.createElement("div")
+red.setAttribute("class", "red")
+
+let azul = document.createElement("div")
+blue.setAttribute("class", "red")
+
+let atual = vermelho
+let proximo = azul
 
 let discosVermelhos = []
 let discosPretos = []
 let discosTotais = []
-*/
-const cells = document.querySelectorAll(".tabuleiro-divs__divs")
-console.log(cells)
 
-cells.addEventListener("click", event => {
-    console.log(event.target.value)
-})
-// não estou conseguindo selecionar as células para adicionar o evento de click nelas.
+const columns = document.querySelectorAll(".tabuleiro-divs__column")
+for(let i = 0; i < columns.length; i++) {
+    columns[i].addEventListener("click", handle)
+    console.log(columns[i])
+}
 
+const handle = function(event) {
+    console.log("ok")
+}
+// const cells = document.querySelector("#tabuleiro-divs")
+// console.log(cells)
+
+// Ao poder adicionar o evento de clique no tabuleiro
+// Pretendo selecionar a coluna
 /*
-const cells = document.querySelector(".tabuleiro-divs__divs")
-for(let i = 0; i < cells.length; i++) {
-    cells[i].addEventListener("click", handleClick)
+const handler = function(event) {
+    const column = event.target.classList
+    column.innerHTML = atual
 }
 */
+
+cells.addEventListener("click", function() {
+})
