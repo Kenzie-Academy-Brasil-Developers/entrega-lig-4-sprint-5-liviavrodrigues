@@ -1,4 +1,7 @@
-let tabuleiro = ['      ',
+
+let tabuleiro =
+ [
+    '      ',
     '      ',
     '      ',
     '      ',
@@ -53,8 +56,6 @@ document.querySelector(".startSection button").addEventListener("click", () => {
         start()
     }
 })
-
-
 function start(){
     const sectionStart = document.querySelector(".startSection")
     sectionStart.style.display = "none";
@@ -77,28 +78,28 @@ function vitoriaVertical(tabuleiro){
     let jogA = "a"
     let jogB = "b"
     for(let i = 0; i < tabuleiro.length; i++){
-        let somaJogadorA = 0;
-        let somaJogadorB = 0;
+        let somaJogAdorA = 0;
+        let somaJogAdorB = 0;
         for(let j = 0; j < tabuleiro[i].length; j++){
             if(tabuleiro[i][j] === jogA){
-                somaJogadorA += 1;
-                console.log(somaJogadorA)
-                if(somaJogadorA === 4){
+                somaJogAdorA += 1;
+                console.log(somaJogAdorA)
+                if(somaJogAdorA === 4){
                     return true;
                 }
             }
             else{
-                somaJogadorA = 0;
+                somaJogAdorA = 0;
             }
             
             if(tabuleiro[i][j] === jogB){
-                somaJogadorB += 1;
-                if(somaJogadorB === 4){
+                somaJogAdorB += 1;
+                if(somaJogAdorB === 4){
                     return true;
                 }
             }
             else{
-                somaJogadorB = 0;
+                somaJogAdorB = 0;
             }
             
         }
@@ -106,7 +107,6 @@ function vitoriaVertical(tabuleiro){
     }
     return false;
 }
-
 function vitoriaDiagonalEsquerda(){
     let sections = Todotabuleiro.children
     
@@ -134,8 +134,39 @@ function vitoriaDiagonalEsquerda(){
     }
     return false
 }
+function vitoriaDiagonalDireita(){
+  let jogA = "a"
+  let jogB = "b"
+  
+ let somaJogA = 0; 
+let somaJogB = 0 
 
-
+ for(let i = 0; i<3;i++){
+      for(let j = 4; j>=0;j--){ 
+       if(tabuleiro[i][j] === jogA){
+        for(let k = 1; k<4;k++){
+          if(tabuleiro[i][j] === tabuleiro[i+k][j-k]){
+            somaJogA+=1   
+          } 
+        }
+        if(somaJogA === 3){
+          return true;
+        }
+       }
+        if(tabuleiro[i][j] === jogB){
+           for(let k = 1; k<4;k++){
+             if(tabuleiro[i][j] === tabuleiro[i+k][j-k]){
+                somaJogB+=1
+              }
+            } 
+              if(somaJogB === 3){
+                return true;
+              }
+         }
+    }      
+  } 
+ return false;
+}
 function vitoriaHorizontal () {
     let jogA = "a"
     let jogB = "b"
@@ -158,9 +189,6 @@ function vitoriaHorizontal () {
         }
     } return false
 }
-
-
-
 /* Outra alternativa
 function vitoriaHorizontal () {
     let jogA = "a"
@@ -187,3 +215,10 @@ function vitoriaHorizontal () {
     return false;
 }
 */
+
+
+
+
+
+
+
