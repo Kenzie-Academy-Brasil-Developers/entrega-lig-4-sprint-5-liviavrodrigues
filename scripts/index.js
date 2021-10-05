@@ -55,6 +55,8 @@ document.querySelector(".startSection button").addEventListener("click", () => {
 })
 
 
+
+
 function start(){
     const sectionStart = document.querySelector(".startSection")
     sectionStart.style.display = "none";
@@ -102,5 +104,33 @@ function vitoriaVertical(tabuleiro){
         }
 
     }
+    return false;
+}
+function vitoriaDiagonalEsquerda(){
+    let sections = Todotabuleiro.children
+    
+    for(let x = sections.length-1; x >= 3; x--){
+        let filhosSec = sections[x].children
+
+        for(let y = filhosSec.length-1; y >= 3; y--){
+            if(filhosSec[y].firstElementChild !== undefined){
+                let disco = filhosSec[y].firstElementChild
+
+                for(let z = 1; z < 4; z++){
+                    let outroDisco = sections[x-z].children[y-z].firstElementChild
+
+                    if(outroDisco === null){
+                        break
+                    } else if(outroDisco.className !== disco.className){
+                        break
+                    }
+                    if(z === 3){
+                        return true
+                    }
+                }
+            }
+        }
+    }
+
     return false;
 }
