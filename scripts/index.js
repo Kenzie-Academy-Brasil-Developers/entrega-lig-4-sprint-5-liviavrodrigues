@@ -55,9 +55,6 @@ document.querySelector(".startSection button").addEventListener("click", () => {
 })
 
 
-
-
-
 function start(){
     const sectionStart = document.querySelector(".startSection")
     sectionStart.style.display = "none";
@@ -73,3 +70,36 @@ function start(){
         Todotabuleiro.appendChild(tabuleiroLinha)
     }
 }
+
+function vitoriaVertical(tabuleiro){
+    let jogA = "a"
+    let jogB = "b"
+    for(let i = 0; i < tabuleiro.length; i++){
+        let somaJogadorA = 0;
+        let somaJogadorB = 0;
+        for(let j = 0; j < tabuleiro[i].length; j++){
+            if(tabuleiro[i][j] === jogA){
+                somaJogadorA += 1;
+                console.log(somaJogadorA)
+                if(somaJogadorA === 4){
+                    return true;
+                }
+            }
+            else{
+                somaJogadorA = 0;
+            }
+            
+            if(tabuleiro[i][j] === jogB){
+                somaJogadorB += 1;
+                if(somaJogadorB === 4){
+                    return true;
+                }
+            }
+            else{
+                somaJogadorB = 0;
+            }
+            
+        }
+
+    }
+    return false;
