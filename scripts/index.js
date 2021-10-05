@@ -85,7 +85,7 @@ function jogar(section){
             section.children[x].appendChild(disco)
 
             let i = [...Todotabuleiro.children].indexOf(section)
-            let j = (JOGADOR_ATUAL === "jogador1")? "A" : "B"
+            let j = (JOGADOR_ATUAL === "jogador1")? "a" : "b"
 
             let linha = tabuleiro[i].split("")
             linha.splice(x, 1, j)
