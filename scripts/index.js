@@ -76,28 +76,28 @@ function vitoriaVertical(tabuleiro){
     let jogA = "a"
     let jogB = "b"
     for(let i = 0; i < tabuleiro.length; i++){
-        let somaJogadorA = 0;
-        let somaJogadorB = 0;
+        let somaJogAdorA = 0;
+        let somaJogAdorB = 0;
         for(let j = 0; j < tabuleiro[i].length; j++){
             if(tabuleiro[i][j] === jogA){
-                somaJogadorA += 1;
-                console.log(somaJogadorA)
-                if(somaJogadorA === 4){
+                somaJogAdorA += 1;
+                console.log(somaJogAdorA)
+                if(somaJogAdorA === 4){
                     return true;
                 }
             }
             else{
-                somaJogadorA = 0;
+                somaJogAdorA = 0;
             }
             
             if(tabuleiro[i][j] === jogB){
-                somaJogadorB += 1;
-                if(somaJogadorB === 4){
+                somaJogAdorB += 1;
+                if(somaJogAdorB === 4){
                     return true;
                 }
             }
             else{
-                somaJogadorB = 0;
+                somaJogAdorB = 0;
             }
             
         }
@@ -106,29 +106,32 @@ function vitoriaVertical(tabuleiro){
     return false;
 }
 
-function victoryDD(){
-  let soma1 = 0; 
-let soma2 = 0 
+function vitoriaDiagonalDireita(){
+  let jogA = "a"
+  let jogB = "b"
+  
+ let somaJogA = 0; 
+let somaJogB = 0 
 
  for(let i = 0; i<3;i++){
       for(let j = 4; j>=0;j--){ 
-       if(tabuleiro[i][j] === '1'){
+       if(tabuleiro[i][j] === jogA){
         for(let k = 1; k<4;k++){
           if(tabuleiro[i][j] === tabuleiro[i+k][j-k]){
-            soma1+=1   
+            somaJogA+=1   
           } 
         }
-        if(soma1 === 3){
+        if(somaJogA === 3){
           return true;
         }
        }
-        if(tabuleiro[i][j] === '2'){
+        if(tabuleiro[i][j] === jogB){
            for(let k = 1; k<4;k++){
              if(tabuleiro[i][j] === tabuleiro[i+k][j-k]){
-                soma2+=1
+                somaJogB+=1
               }
             } 
-            if(soma2 === 3){
+            if(somaJogB === 3){
               return true;
             }
          }
@@ -136,6 +139,7 @@ let soma2 = 0
   } 
  return false;
 }
+
 
 
 
