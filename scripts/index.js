@@ -1,9 +1,9 @@
-let somaA = 0;
+let somaA = 0; 
 let somaB = 0 
 let tabuleiro= 
 [
-'a     ',
-' a    ', 
+'1     ',
+' 1    ', 
 '      ',
 '      ',
 '      ',
@@ -27,8 +27,8 @@ for(let i =0; i<tabuleiro.length;i++){
   
    for(let i =0; i<tabuleiro.length;i++){
        for(let j = 0; j< tabuleiro[i].length;j++){
-         if(tabuleiro[i][j] === 'a' && tabuleiro[i]+1[j]+1){
-             console.log('banana')
+         if(tabuleiro[i][j] === '1' || tabuleiro[i][j] === '2'){
+             //Depois de acessar valor por valor, criar uma valida
          }
         }
      
