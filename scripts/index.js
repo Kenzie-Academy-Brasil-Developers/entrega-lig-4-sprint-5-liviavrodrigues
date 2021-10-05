@@ -12,7 +12,7 @@ const JOGADORES = {"jogador1": "", "jogador2": ""}
 const Todotabuleiro = document.getElementById('tabuleiro-divs')
 
 document.querySelector(".startSection--jogadores").addEventListener("click", (event) => {
-    let option = document.createElement("div");
+    let option
     if(event.target.className === "startSection--option"){
         option = event.target.firstElementChild
     }
