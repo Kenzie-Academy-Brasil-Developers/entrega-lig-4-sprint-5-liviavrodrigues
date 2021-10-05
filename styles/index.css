@@ -6,10 +6,11 @@ header h1 {
 
 main{
     width:100%;
-    height: 500px;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 article#tabuleiro-divs{
@@ -21,15 +22,18 @@ article#tabuleiro-divs{
 section.tabuleiro-divs__column{
    width: 40px;
    height: 240px;
+   display: flex;
+   flex-direction: column;
 }
 
 div.tabuleiro-divs__divs{
-   width:40px;
+   width: 40px;
    height: 40px;
-   border:2px solid black;
-   background-color: aqua;
    display: flex;
-   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   border: 2px solid black;
+   background-color: aqua;
 }
 
 footer {
@@ -43,20 +47,74 @@ footer {
 #footer-content {
     background-color: #ccc;
     border: 1px solid #6b6d7c;
-    font-size: 10 px;
+    font-size: 10px;
     height: 25px; 
     padding-top: 8px;
 }
 
-.red {
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    background-color: red;
+
+
+
+
+main .startSection{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-.blue {
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    background-color: blue;
+main .startSection button{
+    padding: 10px 20px;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+main .startSection--jogadores{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+main .startSection--jogador{
+    width: 230px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main .startSection--jogador h2{
+    font-size: 30px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+main .startSection--option{
+    width: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0;
+    padding: 15px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+.option--red{
+    background-color: rgb(173, 0, 0);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.option--black{
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
