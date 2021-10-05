@@ -1,30 +1,30 @@
 
 let tabuleiro =
- [
-    '      ',
-    '      ',
-    '      ',
-    '      ',
-    '      ',
-    '      ',
-    '      ',]
+    [
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ',]
 
 
-const JOGADORES = {"jogador1": "", "jogador2": ""}
+const JOGADORES = { "jogador1": "", "jogador2": "" }
 
 const Todotabuleiro = document.getElementById('tabuleiro-divs')
 
 document.querySelector(".startSection--jogadores").addEventListener("click", (event) => {
     let option
-    if(event.target.className === "startSection--option"){
+    if (event.target.className === "startSection--option") {
         option = event.target.firstElementChild
     }
-    else if(event.target.className === "option--red" || event.target.className === "option--black"){
+    else if (event.target.className === "option--red" || event.target.className === "option--black") {
         option = event.target
     }
 
-    if(option !== undefined){
-        if(option.className === "option--red"){
+    if (option !== undefined) {
+        if (option.className === "option--red") {
             JOGADORES["jogador1"] = "option--red"
             JOGADORES["jogador2"] = "option--black"
 
@@ -36,7 +36,7 @@ document.querySelector(".startSection--jogadores").addEventListener("click", (ev
             divRed.style.border = "1px solid rgb(0, 0, 122)"
             divRed.style.backgroundColor = "lightblue"
         }
-        else{
+        else {
             JOGADORES["jogador1"] = "option--black"
             JOGADORES["jogador2"] = "option--red"
 
@@ -52,11 +52,11 @@ document.querySelector(".startSection--jogadores").addEventListener("click", (ev
 })
 
 document.querySelector(".startSection button").addEventListener("click", () => {
-    if(JOGADORES["jogador1"] !== ""){
+    if (JOGADORES["jogador1"] !== "") {
         start()
     }
 })
-function start(){
+function start() {
     const sectionStart = document.querySelector(".startSection")
     sectionStart.style.display = "none";
 
@@ -74,58 +74,58 @@ function start(){
 
 
 
-function vitoriaVertical(tabuleiro){
+function vitoriaVertical(tabuleiro) {
     let jogA = "a"
     let jogB = "b"
-    for(let i = 0; i < tabuleiro.length; i++){
+    for (let i = 0; i < tabuleiro.length; i++) {
         let somaJogAdorA = 0;
         let somaJogAdorB = 0;
-        for(let j = 0; j < tabuleiro[i].length; j++){
-            if(tabuleiro[i][j] === jogA){
+        for (let j = 0; j < tabuleiro[i].length; j++) {
+            if (tabuleiro[i][j] === jogA) {
                 somaJogAdorA += 1;
                 console.log(somaJogAdorA)
-                if(somaJogAdorA === 4){
+                if (somaJogAdorA === 4) {
                     return true;
                 }
             }
-            else{
+            else {
                 somaJogAdorA = 0;
             }
-            
-            if(tabuleiro[i][j] === jogB){
+
+            if (tabuleiro[i][j] === jogB) {
                 somaJogAdorB += 1;
-                if(somaJogAdorB === 4){
+                if (somaJogAdorB === 4) {
                     return true;
                 }
             }
-            else{
+            else {
                 somaJogAdorB = 0;
             }
-            
+
         }
 
     }
     return false;
 }
-function vitoriaDiagonalEsquerda(){
+function vitoriaDiagonalEsquerda() {
     let sections = Todotabuleiro.children
-    
-    for(let x = sections.length-1; x >= 3; x--){
+
+    for (let x = sections.length - 1; x >= 3; x--) {
         let filhosSec = sections[x].children
 
-        for(let y = filhosSec.length-1; y >= 3; y--){
-            if(filhosSec[y].firstElementChild !== undefined){
+        for (let y = filhosSec.length - 1; y >= 3; y--) {
+            if (filhosSec[y].firstElementChild !== undefined) {
                 let disco = filhosSec[y].firstElementChild
 
-                for(let z = 1; z < 4; z++){
-                    let outroDisco = sections[x-z].children[y-z].firstElementChild
+                for (let z = 1; z < 4; z++) {
+                    let outroDisco = sections[x - z].children[y - z].firstElementChild
 
-                    if(outroDisco === null){
+                    if (outroDisco === null) {
                         break
-                    } else if(outroDisco.className !== disco.className){
+                    } else if (outroDisco.className !== disco.className) {
                         break
                     }
-                    if(z === 3){
+                    if (z === 3) {
                         return true
                     }
                 }
@@ -134,57 +134,57 @@ function vitoriaDiagonalEsquerda(){
     }
     return false
 }
-function vitoriaDiagonalDireita(){
-  let jogA = "a"
-  let jogB = "b"
-  
- let somaJogA = 0; 
-let somaJogB = 0 
-
- for(let i = 0; i<3;i++){
-      for(let j = 4; j>=0;j--){ 
-       if(tabuleiro[i][j] === jogA){
-        for(let k = 1; k<4;k++){
-          if(tabuleiro[i][j] === tabuleiro[i+k][j-k]){
-            somaJogA+=1   
-          } 
-        }
-        if(somaJogA === 3){
-          return true;
-        }
-       }
-        if(tabuleiro[i][j] === jogB){
-           for(let k = 1; k<4;k++){
-             if(tabuleiro[i][j] === tabuleiro[i+k][j-k]){
-                somaJogB+=1
-              }
-            } 
-              if(somaJogB === 3){
-                return true;
-              }
-         }
-    }      
-  } 
- return false;
-}
-function vitoriaHorizontal () {
+function vitoriaDiagonalDireita() {
     let jogA = "a"
     let jogB = "b"
 
-    for(let y = 0; y < tabuleiro.length; y++) {
-        for(let x = 0; x < tabuleiro[0].length; x++) {
+    let somaJogA = 0;
+    let somaJogB = 0
+
+    for (let i = 0; i < 3; i++) {
+        for (let j = 4; j >= 0; j--) {
+            if (tabuleiro[i][j] === jogA) {
+                for (let k = 1; k < 4; k++) {
+                    if (tabuleiro[i][j] === tabuleiro[i + k][j - k]) {
+                        somaJogA += 1
+                    }
+                }
+                if (somaJogA === 3) {
+                    return true;
+                }
+            }
+            if (tabuleiro[i][j] === jogB) {
+                for (let k = 1; k < 4; k++) {
+                    if (tabuleiro[i][j] === tabuleiro[i + k][j - k]) {
+                        somaJogB += 1
+                    }
+                }
+                if (somaJogB === 3) {
+                    return true;
+                }
+            }
+        }
+    }
+    return false;
+}
+function vitoriaHorizontal() {
+    let jogA = "a"
+    let jogB = "b"
+
+    for (let y = 0; y < tabuleiro.length; y++) {
+        for (let x = 0; x < tabuleiro[0].length; x++) {
             celula = tabuleiro[y][x]
 
-            if(celula !== " ") {
-                if (jogA === tabuleiro[y+1][x] && 
-                    jogA === tabuleiro[y+2][x] && 
-                    jogA === tabuleiro[y+3][x]) {
-                        return true 
-                    } else if (jogB === tabuleiro[y+1][x] && 
-                        jogB === tabuleiro[y+2][x] && 
-                        jogB === tabuleiro[y+3][x]) {
-                            return true
-                        }
+            if (celula !== " ") {
+                if (jogA === tabuleiro[y + 1][x] &&
+                    jogA === tabuleiro[y + 2][x] &&
+                    jogA === tabuleiro[y + 3][x]) {
+                    return true
+                } else if (jogB === tabuleiro[y + 1][x] &&
+                    jogB === tabuleiro[y + 2][x] &&
+                    jogB === tabuleiro[y + 3][x]) {
+                    return true
+                }
             }
         }
     } return false
@@ -201,8 +201,8 @@ function vitoriaHorizontal () {
                 somaJogadorA++
                 if(somaJogadorA === 4) {
                     return true
-                } 
-            } 
+                }
+            }
             if (tabuleiro[j][i] === jogB) {
                 somaJogadorB++
                 if(somaJogadorB === 4) {
@@ -211,7 +211,7 @@ function vitoriaHorizontal () {
             }
          }
     }
-                
+
     return false;
 }
 */
