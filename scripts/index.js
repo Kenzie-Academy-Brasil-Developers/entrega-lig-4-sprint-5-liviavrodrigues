@@ -1,10 +1,10 @@
 
 let tabuleiro =
  [
-    '     2',
-    '    2 ',
-    '   2  ',
-    '  2   ',
+    '      ',
+    '      ',
+    '      ',
+    '      ',
     '      ',
     '      ',
     '      ',]
@@ -56,7 +56,6 @@ document.querySelector(".startSection button").addEventListener("click", () => {
         start()
     }
 })
-
 function start(){
     const sectionStart = document.querySelector(".startSection")
     sectionStart.style.display = "none";
@@ -106,8 +105,6 @@ function vitoriaVertical(tabuleiro){
     }
     return false;
 }
-//
-// ONDE '1' REPRESENTA O JOGADOR 1, E '2', O JOGADOR 2
 
 function victoryDD(){
   let soma1 = 0; 
@@ -118,27 +115,27 @@ let soma2 = 0
        if(tabuleiro[i][j] === '1'){
         for(let k = 1; k<4;k++){
           if(tabuleiro[i][j] === tabuleiro[i+k][j-k]){
-            soma1+=1
-            console.log(soma1)
+            soma1+=1   
           } 
+        }
+        if(soma1 === 3){
+          return true;
         }
        }
         if(tabuleiro[i][j] === '2'){
            for(let k = 1; k<4;k++){
              if(tabuleiro[i][j] === tabuleiro[i+k][j-k]){
                 soma2+=1
-                console.log(soma2)
               }
             } 
+            if(soma2 === 3){
+              return true;
+            }
          }
     }      
-  }
-  if(soma1 === 3){
-    console.log('O jogador 1 ganhou') 
-  }
- else if(soma2 === 3) {console.log('O jogador 2 ganhou')}
-
+  } 
+ return false;
 }
 
-victoryDD()
+
 
