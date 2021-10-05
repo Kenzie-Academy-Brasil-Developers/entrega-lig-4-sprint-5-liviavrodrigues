@@ -55,8 +55,6 @@ document.querySelector(".startSection button").addEventListener("click", () => {
 })
 
 
-
-
 function start(){
     const sectionStart = document.querySelector(".startSection")
     sectionStart.style.display = "none";
@@ -72,6 +70,8 @@ function start(){
         Todotabuleiro.appendChild(tabuleiroLinha)
     }
 }
+
+
 
 function vitoriaVertical(tabuleiro){
     let jogA = "a"
@@ -106,6 +106,7 @@ function vitoriaVertical(tabuleiro){
     }
     return false;
 }
+
 function vitoriaDiagonalEsquerda(){
     let sections = Todotabuleiro.children
     
@@ -131,6 +132,58 @@ function vitoriaDiagonalEsquerda(){
             }
         }
     }
+    return false
+}
 
+
+function vitoriaHorizontal () {
+    let jogA = "a"
+    let jogB = "b"
+
+    for(let y = 0; y < tabuleiro.length; y++) {
+        for(let x = 0; x < tabuleiro[0].length; x++) {
+            celula = tabuleiro[y][x]
+
+            if(celula !== " ") {
+                if (jogA === tabuleiro[y+1][x] && 
+                    jogA === tabuleiro[y+2][x] && 
+                    jogA === tabuleiro[y+3][x]) {
+                        return true 
+                    } else if (jogB === tabuleiro[y+1][x] && 
+                        jogB === tabuleiro[y+2][x] && 
+                        jogB === tabuleiro[y+3][x]) {
+                            return true
+                        }
+            }
+        }
+    } return false
+}
+
+
+
+/* Outra alternativa
+function vitoriaHorizontal () {
+    let jogA = "a"
+    let jogB = "b"
+    for(let i = 0; i < tabuleiro.length; i++) {
+        let somaJogadorA = 0
+        let somaJogadorB = 0
+        for(let j = 0; tabuleiro[i].length; j++) {
+            if(tabuleiro[j][i] === jogA) {
+                somaJogadorA++
+                if(somaJogadorA === 4) {
+                    return true
+                } 
+            } 
+            if (tabuleiro[j][i] === jogB) {
+                somaJogadorB++
+                if(somaJogadorB === 4) {
+                    return true
+                }
+            }
+         }
+    }
+                
     return false;
 }
+*/
