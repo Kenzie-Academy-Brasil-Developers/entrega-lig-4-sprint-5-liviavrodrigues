@@ -108,11 +108,7 @@ function jogar(section){
     }
 }
 
-function start(){
-    if (JOGADORES["jogador1"] !== "") {
-        start()
-    }
-})
+
 function start() {
     const sectionStart = document.querySelector(".startSection")
     sectionStart.style.display = "none";
