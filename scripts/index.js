@@ -217,6 +217,9 @@ function vitoriaDiagonalDireita(tabuleiro) {
 
                     return true;
                 }
+                else{
+                    somaJogA = 0
+                }
             }
             if (tabuleiro[i][j] === jogB) {
                 for (let k = 1; k < 4; k++) {
