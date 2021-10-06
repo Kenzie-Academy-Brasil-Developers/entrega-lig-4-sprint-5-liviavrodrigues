@@ -132,8 +132,6 @@ function start() {
         }
         Todotabuleiro.appendChild(tabuleiroLinha)
     }
-    let buttonRestart = document.getElementById("reset")
-    buttonRestart.style.display = "flex";
 
 }
 
@@ -325,34 +323,4 @@ function reset() {
     Todotabuleiro.innerHTML = ""
 
 }
-
-/*
-function reset() {
-    let colunasTabuleiro = document.getElementsByClassName("tabuleiro-divs__column")
-    for(let i = 6; i >= 0; i--){ 
-        colunasTabuleiro[i].parentNode.removeChild(colunasTabuleiro[i]);
-    }
-    let txtJogador = document.querySelector(".jogador")
-    txtJogador.innerHTML = ``
-    const sectionStart = document.querySelector(".startSection")
-
-    tabuleiro =
-    [
-        '      ',
-        '      ',
-        '      ',
-        '      ',
-        '      ',
-        '      ',
-        '      ',]
-
-
-    JOGADORES = {"jogador1": "", "jogador2": ""}
-    JOGADOR_ATUAL = "";
-    sectionStart.style.display = "flex";
-    buttonRestart.style.display = "none";
-
-
-}
-*/
 
