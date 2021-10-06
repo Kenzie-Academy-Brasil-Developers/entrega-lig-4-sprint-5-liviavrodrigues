@@ -11,7 +11,6 @@ let tabuleiro =
 
 const JOGADORES = {"jogador1": "", "jogador2": ""}
 let JOGADOR_ATUAL = "";
-
 const Todotabuleiro = document.getElementById('tabuleiro-divs')
 
 
@@ -27,9 +26,6 @@ Todotabuleiro.addEventListener("click", (event) => {
         }
     }
 })
-
-
-
 
 document.querySelector(".startSection--jogadores").addEventListener("click", (event) => {
     let option
