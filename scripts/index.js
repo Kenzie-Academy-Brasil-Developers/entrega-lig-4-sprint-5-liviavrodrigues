@@ -35,23 +35,23 @@ document.querySelector(".startSection--jogadores").addEventListener("click", (ev
             JOGADORES["jogador1"] = "option--red"
             JOGADORES["jogador2"] = "option--black"
 
-            let divBlack = document.querySelector(".option--black").closest("div.startSection--option")
+            let divBlack = document.querySelectorAll(".startSection--option")[1]
             divBlack.style.border = "1px solid gray"
             divBlack.style.backgroundColor = "transparent"
 
-            let divRed = document.querySelector(".option--red").closest("div.startSection--option")
-            divRed.style.border = "1px solid rgb(0, 0, 122)"
+            let divRed = document.querySelectorAll(".startSection--option")[0]
+            divRed.style.border = "1px solid darkblue"
             divRed.style.backgroundColor = "lightblue"
         }
         else {
             JOGADORES["jogador1"] = "option--black"
             JOGADORES["jogador2"] = "option--red"
 
-            let divBlack = document.querySelector(".option--black").closest("div.startSection--option")
-            divBlack.style.border = "1px solid rgb(0, 0, 122)"
+            let divBlack = document.querySelectorAll(".startSection--option")[1]
+            divBlack.style.border = "1px solid darkblue"
             divBlack.style.backgroundColor = "lightblue"
 
-            let divRed = document.querySelector(".option--red").closest("div.startSection--option")
+            let divRed = document.querySelectorAll(".startSection--option")[0]
             divRed.style.border = "1px solid gray"
             divRed.style.backgroundColor = "transparent"
         }
@@ -63,6 +63,15 @@ document.querySelector(".startSection button").addEventListener("click", () => {
         JOGADOR_ATUAL = "jogador1"
         let txtJogador = document.querySelector(".jogador")
         txtJogador.innerHTML = `Jogue: ${JOGADOR_ATUAL} <div class="${JOGADORES[JOGADOR_ATUAL]}"></div>`
+
+        let divRed = document.querySelectorAll(".startSection--option")[0]
+        divRed.style.border = "1px solid gray"
+        divRed.style.backgroundColor = "transparent"
+
+        let divBlack = document.querySelectorAll(".startSection--option")[1]
+        divBlack.style.border = "1px solid gray"
+        divBlack.style.backgroundColor = "transparent"
+
         start()
     }
 })
@@ -253,7 +262,7 @@ function vitoria(tabuleiro){
         vitoriaDiagonalDireita(tabuleiro) ||
         vitoriaDiagonalEsquerda()
     ){
-        let displayVitoria = document.querySelector(".sectionVictory");
+        const displayVitoria = document.querySelector(".sectionVictory");
         displayVitoria.classList.remove("display--none");
         displayVitoria.classList.add("section--visible");
 
@@ -280,17 +289,32 @@ function empate(tabuleiro){
     return empate;
 }
 
-const buttonReset = document.createElement("button")
-buttonReset.setAttribute("id", "buttonReset")
+const buttonReset = document.querySelector(".sectionVictory button")
 buttonReset.addEventListener("click", () => {
     reset()
 })
 
-buttonReset.style.padding = "10px 15px"
-buttonReset.style.textAlign = "center"
 
 function reset() {
-    JOGADORES = new Array()
+    JOGADORES["jogador1"] = ""
+    JOGADORES["jogador2"] = ""
+    JOGADOR_ATUAL = "";
+    tabuleiro = [
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ']
+
+    const sectionStart = document.querySelector(".startSection")
+    sectionStart.style.display = "flex";
+
+    const displayVitoria = document.querySelector(".sectionVictory");
+    displayVitoria.classList.add("display--none");
+    displayVitoria.classList.remove("section--visible");
+
     Todotabuleiro.innerHTML = ""
 }
 
