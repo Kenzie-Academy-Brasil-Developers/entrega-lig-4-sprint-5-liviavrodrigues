@@ -130,6 +130,47 @@ main .startSection--option{
     border-radius: 50%;
 }
 
-.reset{
+
+
+.sectionVictory{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.7);
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+}
+.sectionVictory article{
+    width: 80%;
+    height: 400px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.sectionVictory h1{
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.sectionVictory button{
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border: 0;
+}
+
+.display--none{
     display: none;
+}
+.section--visible{
+    display: flex;
 }
