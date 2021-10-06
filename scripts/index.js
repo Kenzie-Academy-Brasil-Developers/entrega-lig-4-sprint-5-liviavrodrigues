@@ -145,6 +145,7 @@ function vitoriaVertical(tabuleiro) {
             if (tabuleiro[i][j] === jogA) {
                 somaJogAdorA += 1;
                 if (somaJogAdorA === 4) {
+                    
                     return true;
                 }
             }
@@ -155,6 +156,7 @@ function vitoriaVertical(tabuleiro) {
             if (tabuleiro[i][j] === jogB) {
                 somaJogAdorB += 1;
                 if (somaJogAdorB === 4) {
+                    
                     return true;
                 }
             }
@@ -183,6 +185,7 @@ function vitoriaDiagonalEsquerda(){
                         break
                     }
                     if (z === 3) {
+                        
                         return true
                     }
                 }
@@ -208,7 +211,7 @@ function vitoriaDiagonalDireita(tabuleiro) {
                     }
                 }
                 if (somaJogA === 3) {
-
+                    
                     return true;
                 }
             }
@@ -219,7 +222,7 @@ function vitoriaDiagonalDireita(tabuleiro) {
                     }
                 }
                 if (somaJogB === 3) {
-
+                    
                     return true;
                 }
             }
@@ -240,13 +243,13 @@ function vitoriaHorizontal(tabuleiro) {
                     jogA === tabuleiro[y + 1][x] &&
                     jogA === tabuleiro[y + 2][x] &&
                     jogA === tabuleiro[y + 3][x]) {
-
+                        
                         return true
                 } else if (jogB === tabuleiro[y][x] &&
                     jogB === tabuleiro[y + 1][x] &&
                     jogB === tabuleiro[y + 2][x] &&
                     jogB === tabuleiro[y + 3][x]) {
-
+                        
                         return true
                 }
             }
