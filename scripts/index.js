@@ -174,12 +174,11 @@ function vitoriaDiagonalEsquerda(){
         let filhosSec = sections[x].children
 
         for (let y = filhosSec.length - 1; y >= 3; y--) {
-            if (filhosSec[y].firstElementChild !== undefined) {
-                let disco = filhosSec[y].firstElementChild
+            if (filhosSec[y].firstElementChild !== null) {
 
+                let disco = filhosSec[y].firstElementChild
                 for (let z = 1; z < 4; z++) {
                     let outroDisco = sections[x - z].children[y - z].firstElementChild
-
                     if (outroDisco === null) {
                         break
                     } else if (outroDisco.className !== disco.className) {
@@ -187,7 +186,6 @@ function vitoriaDiagonalEsquerda(){
                     }
                     if (z === 3) {
                         alert("Vitoria Diagonal Esquerda")
-
                         return true
                     }
                 }
@@ -197,7 +195,6 @@ function vitoriaDiagonalEsquerda(){
 
     return false;
 }
-
 function vitoriaDiagonalDireita(tabuleiro) {
     let jogA = "a"
     let jogB = "b"
@@ -235,7 +232,6 @@ function vitoriaDiagonalDireita(tabuleiro) {
     }
     return false;
 }
-
 function vitoriaHorizontal(tabuleiro) {
     let jogA = "a"
     let jogB = "b"
