@@ -9,7 +9,7 @@ let tabuleiro =
         '      ']
 
 
-const JOGADORES = {"jogador1": "", "jogador2": ""}
+let JOGADORES = {"jogador1": "", "jogador2": ""}
 let JOGADOR_ATUAL = "";
 const Todotabuleiro = document.getElementById('tabuleiro-divs')
 
@@ -132,6 +132,9 @@ function start() {
         }
         Todotabuleiro.appendChild(tabuleiroLinha)
     }
+    let buttonRestart = document.getElementById("reset")
+    buttonRestart.style.display = "flex";
+
 }
 
 
@@ -289,6 +292,7 @@ function empate(tabuleiro){
     return empate;
 }
 
+
 const buttonReset = document.querySelector(".sectionVictory button")
 buttonReset.addEventListener("click", () => {
     reset()
@@ -316,5 +320,36 @@ function reset() {
     displayVitoria.classList.remove("section--visible");
 
     Todotabuleiro.innerHTML = ""
+
 }
+
+/*
+function reset() {
+    let colunasTabuleiro = document.getElementsByClassName("tabuleiro-divs__column")
+    for(let i = 6; i >= 0; i--){ 
+        colunasTabuleiro[i].parentNode.removeChild(colunasTabuleiro[i]);
+    }
+    let txtJogador = document.querySelector(".jogador")
+    txtJogador.innerHTML = ``
+    const sectionStart = document.querySelector(".startSection")
+
+    tabuleiro =
+    [
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ',]
+
+
+    JOGADORES = {"jogador1": "", "jogador2": ""}
+    JOGADOR_ATUAL = "";
+    sectionStart.style.display = "flex";
+    buttonRestart.style.display = "none";
+
+
+}
+*/
 
