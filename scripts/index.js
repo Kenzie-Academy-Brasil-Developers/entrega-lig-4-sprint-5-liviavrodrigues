@@ -273,3 +273,6 @@ function vitoriaHorizontal () {
     return false;
 }
 */
+function reset() {
+    JOGADORES = new Array()
+}
