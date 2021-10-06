@@ -19,6 +19,12 @@ Todotabuleiro.addEventListener("click", (event) => {
     if(event.target.tagName === "DIV"){
         let section = event.target.closest("section");
         jogar(section);
+        if(vitoria(tabuleiro) === true){
+            alert("Você venceu!");
+        }
+        else if(empate(tabuleiro) === true){
+            alert("O jogo empatou !")
+        }
     }
 })
 
@@ -126,7 +132,6 @@ function start() {
 }
 
 
-
 function vitoriaVertical(tabuleiro) {
     let jogA = "a"
     let jogB = "b"
@@ -136,8 +141,8 @@ function vitoriaVertical(tabuleiro) {
         for (let j = 0; j < tabuleiro[i].length; j++) {
             if (tabuleiro[i][j] === jogA) {
                 somaJogAdorA += 1;
-                console.log(somaJogAdorA)
                 if (somaJogAdorA === 4) {
+                    alert("Vitoria vertical")
                     return true;
                 }
             }
@@ -148,6 +153,7 @@ function vitoriaVertical(tabuleiro) {
             if (tabuleiro[i][j] === jogB) {
                 somaJogAdorB += 1;
                 if (somaJogAdorB === 4) {
+                    alert("Vitoria vertical")
                     return true;
                 }
             }
@@ -180,6 +186,8 @@ function vitoriaDiagonalEsquerda(){
                         break
                     }
                     if (z === 3) {
+                        alert("Vitoria Diagonal Esquerda")
+
                         return true
                     }
                 }
@@ -190,7 +198,7 @@ function vitoriaDiagonalEsquerda(){
     return false;
 }
 
-function vitoriaDiagonalDireita() {
+function vitoriaDiagonalDireita(tabuleiro) {
     let jogA = "a"
     let jogB = "b"
 
@@ -206,6 +214,8 @@ function vitoriaDiagonalDireita() {
                     }
                 }
                 if (somaJogA === 3) {
+                    alert("Vitoria Diagonal Direita")
+
                     return true;
                 }
             }
@@ -216,6 +226,8 @@ function vitoriaDiagonalDireita() {
                     }
                 }
                 if (somaJogB === 3) {
+                    alert("Vitoria Diagonal Direita")
+
                     return true;
                 }
             }
@@ -224,52 +236,63 @@ function vitoriaDiagonalDireita() {
     return false;
 }
 
-function vitoriaHorizontal() {
+function vitoriaHorizontal(tabuleiro) {
     let jogA = "a"
     let jogB = "b"
 
-    for (let y = 0; y < tabuleiro.length; y++) {
+    for (let y = 0; y < tabuleiro.length - 3; y++) {
         for (let x = 0; x < tabuleiro[0].length; x++) {
             celula = tabuleiro[y][x]
 
             if (celula !== " ") {
-                if (jogA === tabuleiro[y + 1][x] &&
+                if (jogA === tabuleiro[y][x] &&
+                    jogA === tabuleiro[y + 1][x] &&
                     jogA === tabuleiro[y + 2][x] &&
                     jogA === tabuleiro[y + 3][x]) {
-                    return true
-                } else if (jogB === tabuleiro[y + 1][x] &&
+                        alert("Vitoria Horizontal")
+
+                        return true
+                } else if (jogB === tabuleiro[y][x] &&
+                    jogB === tabuleiro[y + 1][x] &&
                     jogB === tabuleiro[y + 2][x] &&
                     jogB === tabuleiro[y + 3][x]) {
-                    return true
+                        alert("Vitoria Horizontal")
+
+                        return true
                 }
             }
         }
     } return false
 }
 
-/* Outra alternativa
-function vitoriaHorizontal () {
-    let jogA = "a"
-    let jogB = "b"
-    for(let i = 0; i < tabuleiro.length; i++) {
-        let somaJogadorA = 0
-        let somaJogadorB = 0
-        for(let j = 0; tabuleiro[i].length; j++) {
-            if(tabuleiro[j][i] === jogA) {
-                somaJogadorA++
-                if(somaJogadorA === 4) {
-                    return true
-                }
-            }
-            if (tabuleiro[j][i] === jogB) {
-                somaJogadorB++
-                if(somaJogadorB === 4) {
-                    return true
-                }
-            }
-         }
-    }
 
-    return false;
+function vitoria(tabuleiro){
+    if(
+        vitoriaHorizontal(tabuleiro) === true ||
+        vitoriaVertical(tabuleiro) === true ||
+        vitoriaDiagonalDireita(tabuleiro) === true ||
+        vitoriaDiagonalEsquerda() === true
+    ){
+        return true;
+    }
+    else{
+        return false;
+    }
 }
-*/
+
+function empate(tabuleiro){
+    let empate = true;
+
+    for(i = 0; i < tabuleiro.length; i++){
+        for(j = 0; j < tabuleiro[i].length; j++){
+            if(tabuleiro[i][j] === " "){
+                empate = false;
+            }
+        }
+
+    }
+    return empate;
+}
+
+
+
