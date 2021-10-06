@@ -22,7 +22,7 @@ Todotabuleiro.addEventListener("click", (event) => {
         if(vitoria(tabuleiro) === true){
             alert("Você venceu!");
         }
-        if(empate(tabuleiro) === true){
+        else if(empate(tabuleiro) === true){
             alert("O jogo empatou !")
         }
     }
@@ -283,8 +283,8 @@ function vitoria(tabuleiro){
 function empate(tabuleiro){
     let empate = true;
 
-    for(i=0;i<tabuleiro.length;i++){
-        for(j=0;j< tabuleiro[i].length;j++){
+    for(i = 0; i < tabuleiro.length; i++){
+        for(j = 0; j < tabuleiro[i].length; j++){
             if(tabuleiro[i][j] === " "){
                 empate = false;
             }
