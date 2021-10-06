@@ -9,13 +9,13 @@ let tabuleiro =
         '      ']
 
 
-let JOGADORES = {"jogador1": "", "jogador2": ""}
+let JOGADORES = { "jogador1": "", "jogador2": "" }
 let JOGADOR_ATUAL = "";
 const Todotabuleiro = document.getElementById('tabuleiro-divs')
 
 
 Todotabuleiro.addEventListener("click", (event) => {
-    if(event.target.tagName === "DIV"){
+    if (event.target.tagName === "DIV") {
         let section = event.target.closest("section");
         jogar(section);
     }
@@ -59,7 +59,7 @@ document.querySelector(".startSection--jogadores").addEventListener("click", (ev
 })
 
 document.querySelector(".startSection button").addEventListener("click", () => {
-    if(JOGADORES["jogador1"] !== ""){
+    if (JOGADORES["jogador1"] !== "") {
         JOGADOR_ATUAL = "jogador1"
         let txtJogador = document.querySelector(".jogador")
         txtJogador.innerHTML = `Jogue: ${JOGADOR_ATUAL} <div class="${JOGADORES[JOGADOR_ATUAL]}"></div>`
@@ -80,30 +80,30 @@ document.querySelector(".startSection button").addEventListener("click", () => {
 
 
 
-function jogar(section){
-    for(let x = section.children.length-1; x >= 0; x--){
+function jogar(section) {
+    for (let x = section.children.length - 1; x >= 0; x--) {
         let disco = section.children[x].firstElementChild
 
-        if(disco === null){
+        if (disco === null) {
             disco = document.createElement("div")
             disco.classList.add(JOGADORES[JOGADOR_ATUAL])
             section.children[x].appendChild(disco)
 
             let i = [...Todotabuleiro.children].indexOf(section)
-            let j = (JOGADOR_ATUAL === "jogador1")? "a" : "b"
+            let j = (JOGADOR_ATUAL === "jogador1") ? "a" : "b"
 
             let linha = tabuleiro[i].split("")
             linha.splice(x, 1, j)
             tabuleiro[i] = linha.join("")
 
 
-            if(!vitoria(tabuleiro) && !empate(tabuleiro)){
-                if(JOGADOR_ATUAL === "jogador1"){
+            if (!vitoria(tabuleiro) && !empate(tabuleiro)) {
+                if (JOGADOR_ATUAL === "jogador1") {
                     JOGADOR_ATUAL = "jogador2"
-                } else{
+                } else {
                     JOGADOR_ATUAL = "jogador1"
                 }
-    
+
                 let txtJogador = document.querySelector(".jogador")
                 txtJogador.innerHTML = `Jogue: ${JOGADOR_ATUAL} <div class="${JOGADORES[JOGADOR_ATUAL]}"></div>`
             }
@@ -111,7 +111,7 @@ function jogar(section){
             break
         }
 
-        if(x === 0){
+        if (x === 0) {
             alert("Coluna Cheia! Tente em outra")
         }
     }
@@ -132,6 +132,8 @@ function start() {
         }
         Todotabuleiro.appendChild(tabuleiroLinha)
     }
+    let buttonRestart = document.getElementById("reset")
+    buttonRestart.style.display = "flex";
 
 }
 
@@ -146,7 +148,6 @@ function vitoriaVertical(tabuleiro) {
             if (tabuleiro[i][j] === jogA) {
                 somaJogAdorA += 1;
                 if (somaJogAdorA === 4) {
-                    
                     return true;
                 }
             }
@@ -157,7 +158,6 @@ function vitoriaVertical(tabuleiro) {
             if (tabuleiro[i][j] === jogB) {
                 somaJogAdorB += 1;
                 if (somaJogAdorB === 4) {
-                    
                     return true;
                 }
             }
@@ -168,7 +168,7 @@ function vitoriaVertical(tabuleiro) {
     }
     return false;
 }
-function vitoriaDiagonalEsquerda(){
+function vitoriaDiagonalEsquerda() {
     let sections = Todotabuleiro.children
 
     for (let x = sections.length - 1; x >= 3; x--) {
@@ -186,7 +186,6 @@ function vitoriaDiagonalEsquerda(){
                         break
                     }
                     if (z === 3) {
-                        
                         return true
                     }
                 }
@@ -204,16 +203,22 @@ function vitoriaDiagonalDireita(tabuleiro) {
     let somaJogB = 0
 
     for (let i = 0; i < 4; i++) {
-        for (let j = 4; j >= 0; j--) {
+        for (let j = 5; j >=3; j--) {
             if (tabuleiro[i][j] === jogA) {
                 for (let k = 1; k < 4; k++) {
                     if (tabuleiro[i][j] === tabuleiro[i + k][j - k]) {
                         somaJogA += 1
                     }
+                     else{
+                         somaJogA = 0
+                     }
                 }
-                if (somaJogA === 3) {
-                    
+                if (somaJogA === 3) {''
+
                     return true;
+                }
+                else{
+                    somaJogA = 0
                 }
             }
             if (tabuleiro[i][j] === jogB) {
@@ -221,9 +226,12 @@ function vitoriaDiagonalDireita(tabuleiro) {
                     if (tabuleiro[i][j] === tabuleiro[i + k][j - k]) {
                         somaJogB += 1
                     }
+                     else{  
+                        somaJogB = 0
+                     }
                 }
                 if (somaJogB === 3) {
-                    
+
                     return true;
                 }
             }
@@ -244,14 +252,14 @@ function vitoriaHorizontal(tabuleiro) {
                     jogA === tabuleiro[y + 1][x] &&
                     jogA === tabuleiro[y + 2][x] &&
                     jogA === tabuleiro[y + 3][x]) {
-                        
-                        return true
+
+                    return true
                 } else if (jogB === tabuleiro[y][x] &&
                     jogB === tabuleiro[y + 1][x] &&
                     jogB === tabuleiro[y + 2][x] &&
                     jogB === tabuleiro[y + 3][x]) {
-                        
-                        return true
+
+                    return true
                 }
             }
         }
@@ -259,13 +267,13 @@ function vitoriaHorizontal(tabuleiro) {
 }
 
 
-function vitoria(tabuleiro){
-    if(
+function vitoria(tabuleiro) {
+    if (
         vitoriaHorizontal(tabuleiro) ||
         vitoriaVertical(tabuleiro) ||
         vitoriaDiagonalDireita(tabuleiro) ||
         vitoriaDiagonalEsquerda()
-    ){
+    ) {
         const displayVitoria = document.querySelector(".sectionVictory");
         displayVitoria.classList.remove("display--none");
         displayVitoria.classList.add("section--visible");
@@ -274,17 +282,17 @@ function vitoria(tabuleiro){
 
         return true;
     }
-    else{
+    else {
         return false;
     }
 }
 
-function empate(tabuleiro){
+function empate(tabuleiro) {
     let empate = true;
 
-    for(i = 0; i < tabuleiro.length; i++){
-        for(j = 0; j < tabuleiro[i].length; j++){
-            if(tabuleiro[i][j] === " "){
+    for (i = 0; i < tabuleiro.length; i++) {
+        for (j = 0; j < tabuleiro[i].length; j++) {
+            if (tabuleiro[i][j] === " ") {
                 empate = false;
             }
         }
@@ -323,4 +331,34 @@ function reset() {
     Todotabuleiro.innerHTML = ""
 
 }
+
+/*
+function reset() {
+    let colunasTabuleiro = document.getElementsByClassName("tabuleiro-divs__column")
+    for(let i = 6; i >= 0; i--){
+        colunasTabuleiro[i].parentNode.removeChild(colunasTabuleiro[i]);
+    }
+    let txtJogador = document.querySelector(".jogador")
+    txtJogador.innerHTML = ``
+    const sectionStart = document.querySelector(".startSection")
+
+    tabuleiro =
+    [
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ',
+        '      ',]
+
+
+    JOGADORES = {"jogador1": "", "jogador2": ""}
+    JOGADOR_ATUAL = "";
+    sectionStart.style.display = "flex";
+    buttonRestart.style.display = "none";
+
+
+}
+*/
 
