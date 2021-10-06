@@ -286,5 +286,17 @@ function empate(tabuleiro){
     return empate;
 }
 
+const buttonReset = document.createElement("button")
+buttonReset.setAttribute("id", "buttonReset")
+buttonReset.addEventListener("click", () => {
+    reset()
+})
 
+buttonReset.style.padding = "10px 15px"
+buttonReset.style.textAlign = "center"
+
+function reset() {
+    JOGADORES = new Array()
+    Todotabuleiro.innerHTML = ""
+}
 
