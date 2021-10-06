@@ -202,7 +202,7 @@ function vitoriaDiagonalDireita(tabuleiro) {
     let somaJogA = 0;
     let somaJogB = 0
 
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 4; i++) {
         for (let j = 4; j >= 0; j--) {
             if (tabuleiro[i][j] === jogA) {
                 for (let k = 1; k < 4; k++) {
