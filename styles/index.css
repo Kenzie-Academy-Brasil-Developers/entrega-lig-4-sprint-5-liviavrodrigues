@@ -303,30 +303,35 @@ main .startSection--jogadores{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    color:white;
 }
 .victory--option--slytherin{
     background-image:url('../img/sonserina.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    color:white;
 }
 .victory--option--hufflepuff{
     background-image:url('../img/hufflepuff.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    color:white;
 }
 .victory--option--ravenclaw{
     background-image:url('../img/corvinal.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    color:white;
 }
 .draw{
     background-image:url('../img/botão.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+    color:white;
 }
 
 
