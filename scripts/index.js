@@ -275,8 +275,9 @@ function vitoria(tabuleiro) {
         return true;
     } else if(empate(tabuleiro)){
         const displayVitoria = document.querySelector(".sectionVictory");
-        displayVitoria.classList.remove("display--none");
-        displayVitoria.classList.add("section--visible");
+        displayVitoria.classList.remove("display--none")
+        displayVitoria.classList.add("section--visible")
+        displayVitoria.firstElementChild.className = "draw"
 
         displayVitoria.querySelector("h1").textContent = `Empatou !!!`
 
