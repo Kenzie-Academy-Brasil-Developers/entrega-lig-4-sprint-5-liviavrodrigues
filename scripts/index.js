@@ -23,54 +23,47 @@ Todotabuleiro.addEventListener("click", (event) => {
 
 document.querySelector(".startSection--jogadores").addEventListener("click", (event) => {
     let option
-    if (event.target.className === "startSection--option") {
+    if (event.target.classList[0] === "startSection--option") {
         option = event.target.firstElementChild
     }
-    else if (event.target.className === "option--red" || event.target.className === "option--black") {
+    else if (event.target.className === "option--gryffindor" || event.target.className === "option--slytherin" || event.target.className === "option--hufflepuff" || event.target.className === "option--ravenclaw") {
         option = event.target
     }
 
     if (option !== undefined) {
-        if (option.className === "option--red") {
-            JOGADORES["jogador1"] = "option--red"
-            JOGADORES["jogador2"] = "option--black"
+        if(JOGADORES["jogador1"] === ""){
+            let sectionOption = option.closest("div.startSection--option")
+            sectionOption.classList.remove("section--noselect")
+            sectionOption.classList.add("section--select")
+            
+            JOGADORES["jogador1"] = option.className
+        } else if(JOGADORES["jogador1"] === option.className){
+            let sectionOption = option.closest("div.startSection--option")
+            sectionOption.classList.remove("section--select")
+            sectionOption.classList.add("section--noselect")
 
-            let divBlack = document.querySelectorAll(".startSection--option")[1]
-            divBlack.style.border = "1px solid gray"
-            divBlack.style.backgroundColor = "transparent"
+            JOGADORES["jogador1"] = ""
+        } else if(JOGADORES["jogador2"] === ""){
+            let sectionOption = option.closest("div.startSection--option")
+            sectionOption.classList.remove("section--noselect")
+            sectionOption.classList.add("section--select")
 
-            let divRed = document.querySelectorAll(".startSection--option")[0]
-            divRed.style.border = "1px solid darkblue"
-            divRed.style.backgroundColor = "lightblue"
-        }
-        else {
-            JOGADORES["jogador1"] = "option--black"
-            JOGADORES["jogador2"] = "option--red"
+            JOGADORES["jogador2"] = option.className
+        } else if(JOGADORES["jogador2"] === option.className){
+            let sectionOption = option.closest("div.startSection--option")
+            sectionOption.classList.remove("section--select")
+            sectionOption.classList.add("section--noselect")
 
-            let divBlack = document.querySelectorAll(".startSection--option")[1]
-            divBlack.style.border = "1px solid darkblue"
-            divBlack.style.backgroundColor = "lightblue"
-
-            let divRed = document.querySelectorAll(".startSection--option")[0]
-            divRed.style.border = "1px solid gray"
-            divRed.style.backgroundColor = "transparent"
+            JOGADORES["jogador2"] = ""
         }
     }
 })
 
 document.querySelector(".startSection button").addEventListener("click", () => {
-    if (JOGADORES["jogador1"] !== "") {
+    if (JOGADORES["jogador1"] !== "" && JOGADORES["jogador2"] !== "") {
         JOGADOR_ATUAL = "jogador1"
         let txtJogador = document.querySelector(".jogador")
         txtJogador.innerHTML = `Jogue: ${JOGADOR_ATUAL} <div class="${JOGADORES[JOGADOR_ATUAL]}"></div>`
-
-        let divRed = document.querySelectorAll(".startSection--option")[0]
-        divRed.style.border = "1px solid gray"
-        divRed.style.backgroundColor = "transparent"
-
-        let divBlack = document.querySelectorAll(".startSection--option")[1]
-        divBlack.style.border = "1px solid gray"
-        divBlack.style.backgroundColor = "transparent"
 
         start()
     }
@@ -97,7 +90,7 @@ function jogar(section) {
             tabuleiro[i] = linha.join("")
 
 
-            if (!vitoria(tabuleiro) && !empate(tabuleiro)) {
+            if (!vitoria(tabuleiro)) {
                 if (JOGADOR_ATUAL === "jogador1") {
                     JOGADOR_ATUAL = "jogador2"
                 } else {
@@ -132,9 +125,6 @@ function start() {
         }
         Todotabuleiro.appendChild(tabuleiroLinha)
     }
-    let buttonRestart = document.getElementById("reset")
-    buttonRestart.style.display = "flex";
-
 }
 
 
@@ -287,6 +277,8 @@ function vitoria(tabuleiro) {
         displayVitoria.classList.add("section--visible");
 
         displayVitoria.querySelector("h1").textContent = `Empatou !!!`
+
+        return true;
     }
     else {
         return false;
@@ -328,11 +320,19 @@ function reset() {
         '      ']
 
     const sectionStart = document.querySelector(".startSection")
-    sectionStart.style.display = "flex";
+    sectionStart.style.display = "flex"
 
-    const displayVitoria = document.querySelector(".sectionVictory");
-    displayVitoria.classList.add("display--none");
-    displayVitoria.classList.remove("section--visible");
+    let sectionOption = document.querySelector(".startSection--jogador .section--select");
+    while(sectionOption != null){
+        sectionOption.classList.remove("section--select")
+        sectionOption.classList.add("section--noselect")
+
+        sectionOption = document.querySelector(".startSection--jogador .section--select")
+    }
+
+    const displayVitoria = document.querySelector(".sectionVictory")
+    displayVitoria.classList.add("display--none")
+    displayVitoria.classList.remove("section--visible")
 
     Todotabuleiro.innerHTML = ""
 
