@@ -171,9 +171,13 @@ main .startSection--jogador h2{
     
     border-radius: 10px;
 }
-.section--select{
+.section--select--first{
     border: 1px solid darkblue;
     background-color: lightblue;
+}
+.section--select--second{
+    border: 1px solid darkred;
+    background-color: lightcoral;
 }
 .section--noselect{
     

@@ -31,27 +31,27 @@ document.querySelector(".startSection--jogadores").addEventListener("click", (ev
     }
 
     if (option !== undefined) {
-        if(JOGADORES["jogador1"] === ""){
+        if(JOGADORES["jogador1"] === "" && JOGADORES["jogador2"] !== option.className){
             let sectionOption = option.closest("div.startSection--option")
             sectionOption.classList.remove("section--noselect")
-            sectionOption.classList.add("section--select")
+            sectionOption.classList.add("section--select--first")
             
             JOGADORES["jogador1"] = option.className
         } else if(JOGADORES["jogador1"] === option.className){
             let sectionOption = option.closest("div.startSection--option")
-            sectionOption.classList.remove("section--select")
+            sectionOption.classList.remove("section--select--first")
             sectionOption.classList.add("section--noselect")
 
             JOGADORES["jogador1"] = ""
         } else if(JOGADORES["jogador2"] === ""){
             let sectionOption = option.closest("div.startSection--option")
             sectionOption.classList.remove("section--noselect")
-            sectionOption.classList.add("section--select")
+            sectionOption.classList.add("section--select--second")
 
             JOGADORES["jogador2"] = option.className
         } else if(JOGADORES["jogador2"] === option.className){
             let sectionOption = option.closest("div.startSection--option")
-            sectionOption.classList.remove("section--select")
+            sectionOption.classList.remove("section--select--second")
             sectionOption.classList.add("section--noselect")
 
             JOGADORES["jogador2"] = ""
@@ -323,13 +323,13 @@ function reset() {
     const sectionStart = document.querySelector(".startSection")
     sectionStart.style.display = "flex"
 
-    let sectionOption = document.querySelector(".startSection--jogador .section--select");
-    while(sectionOption != null){
-        sectionOption.classList.remove("section--select")
-        sectionOption.classList.add("section--noselect")
+    let sectionOption = document.querySelector(".startSection--jogador .section--select--first");
+    sectionOption.classList.remove("section--select--first")
+    sectionOption.classList.add("section--noselect")
 
-        sectionOption = document.querySelector(".startSection--jogador .section--select")
-    }
+    sectionOption = document.querySelector(".startSection--jogador .section--select--second")
+    sectionOption.classList.remove("section--select--second")
+    sectionOption.classList.add("section--noselect")
 
     const displayVitoria = document.querySelector(".sectionVictory")
     displayVitoria.classList.add("display--none")
