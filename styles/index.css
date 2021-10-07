@@ -57,15 +57,15 @@ article#tabuleiro-divs{
 }
 
 section.tabuleiro-divs__column{
-   width: 40px;
+   width: 60px;
    height: 240px;
    display: flex;
    flex-direction: column;
 }
 
 div.tabuleiro-divs__divs{
-   width: 40px;
-   height: 40px;
+   width: 60px;
+   height: 60px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -91,8 +91,12 @@ footer {
     padding-top: 8px;
 }
 
-main .startSection{
+
+
+
+.startSection{
     position: absolute;
+    height: 400px;
     top: 0;
     bottom: 0;
     left: 0;
@@ -103,7 +107,7 @@ main .startSection{
     align-items: center;
   
 }
-main .startSection button{
+.startSection button{
     padding: 10px 20px;
     border: 1px solid transparent;
     border-radius: 5px;
@@ -111,10 +115,11 @@ main .startSection button{
     font-weight: bold;
     text-transform: uppercase;
 }
+
 main .startSection--jogadores{
     width: 80%;   
 }
-main .startSection--jogador{
+/* main .startSection--jogador{
  width: 100%;  
  height: 300px;
  display: flex;
@@ -123,15 +128,40 @@ main .startSection--jogador{
  
  
  
-}
+} */
 main .startSection--jogador h2{
+    font-family: Pacifico, cursive;
+    -webkit-text-stroke: 1px black;
+    color:white;
     width: 100%;
     font-size: 30px;
     font-weight: bold;
     text-align: center;
     margin: 15px 0;
 }
-main .startSection--option{
+.startSection--jogadores{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+.startSection--jogador{
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background: rgba( 3, 0, 0, 0.5 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0px );
+    -webkit-backdrop-filter: blur( 0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+
+.startSection--option{
     width: 100px;
     height: 100px;
     display: flex;
@@ -152,28 +182,48 @@ main .startSection--option{
 
 
 .option--gryffindor{
-    background-color: rgb(173, 0, 0);
-    width: 80px;
-    height: 80px;
+    background-image:url('../img/grifinoria.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 25px 10px rgb(219, 19, 19); 
+    box-shadow: 0px 0px 25px 10px rgb(219, 19, 19);
 }
 .option--slytherin{
-    background-color: black;
-    width: 80px;
-    height: 80px;
+    background-image:url('../img/sonserina.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 25px 10px rgb(16, 71, 14); 
+    box-shadow: 0px 0px 25px 10px rgb(16, 71, 14);
 }
 .option--hufflepuff{
-    background-color: green;
-    width: 80px;
-    height: 80px;
+    background-image:url('../img/lufa-lufa.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 25px 10px rgb(219, 219, 106); 
+    box-shadow: 0px 0px 25px 10px rgb(219, 219, 106);
 }
 .option--ravenclaw{
-    background-color: gray;
-    width: 80px;
-    height: 80px;
+    background-image:url('../img/corvinal.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 25px 10px #380f99; 
+    box-shadow: 0px 0px 25px 10px #380f99; 
 }
 .sectionVictory{
     position: absolute;
@@ -181,7 +231,7 @@ main .startSection--option{
     left: 0;
     right: 0;
     bottom: 0;
-    padding: 30px;
+    padding: 60px;
     background-color: rgba(0, 0, 0, 0.7);
     flex-direction: column;
     justify-content: start;
@@ -198,7 +248,7 @@ main .startSection--option{
     align-items: center;
 }
 .sectionVictory h1{
-    font-size: 40px;
+    font-size: 60px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
@@ -237,11 +287,11 @@ main .startSection--option{
         margin: 25px auto;
     }
     footer {
-        position: relative;
-        top: 110px;
+        
+        
     }
     #footer-content {
-        background: #d3d3d3;
+        
     }
 }
 @media only screen and (min-width: 1024px) {
