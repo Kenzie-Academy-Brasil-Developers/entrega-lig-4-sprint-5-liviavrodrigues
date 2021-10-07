@@ -123,20 +123,15 @@ footer {
     font-size: 20px;
     font-weight: bold;
     text-transform: uppercase;
+    background-image: url('../img/button.jpeg');
+    background-position: 5;
+    color:white
 }
 
 main .startSection--jogadores{
     width: 80%;   
 }
 
-/* main .startSection--jogador{
- width: 100%;  
- height: 300px;
- display: flex;
- flex-wrap: wrap;
- justify-content: space-between;
- 
-} */
 .startSection--jogador h2{
     font-family: Pacifico, cursive;
     -webkit-text-stroke: 1px black;
@@ -179,6 +174,7 @@ main .startSection--jogadores{
     align-items: center;
     border-radius: 10px;
 }
+
 .section--select--first{
     border: 1px solid darkblue;
     background-color: lightblue;
@@ -196,49 +192,51 @@ main .startSection--jogadores{
 
 
 .option--gryffindor{
-    background-image:url('../img/grifinoria.jpeg');
+    background-image:url('../img/grifinoria.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    -webkit-box-shadow: 0px 0px 25px 10px rgb(219, 19, 19); 
-    box-shadow: 0px 0px 25px 10px rgb(219, 19, 19);
+    -webkit-box-shadow: 0px 0px 18px 2px rgb(219, 19, 19); 
+    box-shadow: 0px 0px 18px 2px rgb(219, 19, 19);
 }
 .option--slytherin{
-    background-image:url('../img/sonserina.jpeg');
+    background-image:url('../img/sonserina.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    -webkit-box-shadow: 0px 0px 25px 10px rgb(16, 71, 14); 
-    box-shadow: 0px 0px 25px 10px rgb(16, 71, 14);
+    -webkit-box-shadow: 0px 0px 18px 2px rgb(16, 71, 14); 
+    box-shadow: 0px 0px 18px 2px rgb(16, 71, 14);
 }
 .option--hufflepuff{
-    background-image:url('../img/lufa-lufa.jpeg');
+    background-image:url('../img/hufflepuff.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    -webkit-box-shadow: 0px 0px 25px 10px rgb(219, 219, 106); 
-    box-shadow: 0px 0px 25px 10px rgb(219, 219, 106);
+    -webkit-box-shadow: 0px 0px 18px 2px rgb(219, 219, 106); 
+    box-shadow: 0px 0px 18px 2px rgb(219, 219, 106);
 }
+
 .option--ravenclaw{
-    background-image:url('../img/corvinal.jpeg');
+    background-image:url('../img/corvinal.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    -webkit-box-shadow: 0px 0px 25px 10px #380f99; 
-    box-shadow: 0px 0px 25px 10px #380f99; 
+    -webkit-box-shadow: 0px 0px 18px 2px #380f99; 
+    box-shadow: 0px 0px 18px 2px #380f99;
 }
+ 
 .startSection--jogador > div{
     width: 50px;
     height: 50px;
@@ -284,6 +282,9 @@ main .startSection--jogadores{
     text-transform: uppercase;
     padding: 10px 20px;
     border: 0;
+    background-color: #a7ad4b;
+    border-radius: 5%;
+    color:white
 }
 
 .display--none{
@@ -298,16 +299,28 @@ main .startSection--jogadores{
 
 
 .victory--option--gryffindor{
-    background-color: rgb(245, 102, 102);
+    background-image:url('../img/grifinoria.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .victory--option--slytherin{
-    background-color: rgb(88, 88, 88);
+    background-image:url('../img/sonserina.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .victory--option--hufflepuff{
-    background-color: lightgreen;
+    background-image:url('../img/hufflepuff.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .victory--option--ravenclaw{
-    background-color: rgb(209, 209, 209);
+    background-image:url('../img/corvinal.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 
