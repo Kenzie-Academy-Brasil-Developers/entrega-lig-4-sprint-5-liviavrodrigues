@@ -347,3 +347,7 @@ function reset() {
 const hit = new Audio()
 hit.src = "../song/magic.mp3"
 hit.volume = 0.05
+
+let audio = document.querySelector("audio")
+audio.autoplay = true
+audio.loop = true
