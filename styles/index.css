@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 audio {
-    display: block;
+    display: none;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 header h1 {
     background-color: black;
     padding: 3vh 0;
-    opacity: 0.4;
+    opacity: 0.5;
     margin: 2vh 0 0 0;
     font-size: 5.5vh;
     font-weight: bolder;
@@ -48,6 +48,7 @@ main .jogador {
 }
 
 article#tabuleiro-divs{
+border: 2px thin black;
    width: 280px;
    display: flex;
    flex-wrap: wrap;
@@ -67,11 +68,14 @@ div.tabuleiro-divs__divs{
    display: flex;
    justify-content: center;
    align-items: center;
-   background: rgba( 255, 255, 255, 0.1 );
-    box-shadow: 0 8px 32px 0 burlywood;
-    backdrop-filter: blur( 1px );
-    -webkit-backdrop-filter: blur( 1px );
-    border: 2px solid rgba( 255, 255, 255, 0.18 );
+   background: rgba( 222, 184, 135, 0.25 );
+backdrop-filter: blur( 2px );
+-webkit-backdrop-filter: blur( 4px );
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+
+div.tabuleiro-divs__divs:hover {
+    cursor: pointer;
 }
 
 footer {
@@ -83,14 +87,13 @@ footer {
 }
 
 #footer-content {
-    background-color: #ffe4b5;
-    border: 1px solid #f4a460;
+    background-color:black;
+    opacity: 0.6;
+    color: white;
+    font-family: 'Pacifico', cursive;
     font-size: 4vh;
-    padding-top: 8px;
+    padding: 2.5vh 0;
 }
-
-
-
 
 .startSection{
     position: absolute;
@@ -226,30 +229,57 @@ footer {
 }
 
 @media only screen and (min-width: 600px) {
+    
     body {
         background-image: url("../img/map-desktop.jpg");
         background-repeat: no-repeat;
-        background-size: 100%;
-    }
-    main {
-        height: 400px;
+        background-size: 100% 150%;
     }
     main .jogador {
         margin: 25px auto;
     }
     footer {
         position: relative;
-        top: 110px;
     }
     #footer-content {
-        background: #d3d3d3;
+        color: white;
+        background: black;
+        opacity: 0.5;
+        font-family: 'Pacifico', cursive;
+        padding: 25px 0;
     }
+
+article#tabuleiro-divs{
+    width: 280px;
+ }
+ 
+ section.tabuleiro-divs__column{
+    width: 40px;
+    height: 240px;
+ }
+ 
+ div.tabuleiro-divs__divs{
+    width: 40px;
+    height: 40px;
+    background: rgba( 255, 255, 255, 0.1 );
+     box-shadow: 0 8px 32px 0 grey;
+     backdrop-filter: blur( 1px );
+     -webkit-backdrop-filter: blur( 1px );
+     border: 2px solid rgba( 255, 255, 255, 0.18 );
+ }
+ .option--gryffindor, .option--hufflepuff, .option--ravenclaw, .option--slytherin {
+    width: 40px;
+    height: 40px; 
+ }
 }
+
 @media only screen and (min-width: 1024px) {
+
     header h1 {
-        font-size: 75px;
+        font-size: 50px;
     }   
     main .jogador {
-        font-size: 50px;
+        font-size: 35px;
     }
+
 }
