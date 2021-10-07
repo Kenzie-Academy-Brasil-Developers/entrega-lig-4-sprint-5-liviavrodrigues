@@ -108,6 +108,7 @@ function jogar(section) {
             alert("Coluna Cheia! Tente em outra")
         }
     }
+    hit.play()
 }
 
 
@@ -367,4 +368,6 @@ function reset() {
 
 }
 */
-
+const hit = new Audio()
+hit.src = "../song/magic.mp3"
+hit.volume = 0.15
