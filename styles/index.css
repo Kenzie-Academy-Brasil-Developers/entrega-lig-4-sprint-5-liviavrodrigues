@@ -9,10 +9,11 @@ body {
     background-size: auto;
     background-position: center;
     background-repeat: no-repeat;
+   
 }
 
 header h1 {
-    background-color: black;
+    
     padding: 3vh 0;
     opacity: 0.5;
     margin: 2vh 0 0 0;
@@ -31,6 +32,7 @@ main {
     justify-content: center;
     align-items: center;
     position: relative;
+
 }
 
 main .jogador {
@@ -56,15 +58,15 @@ border: 2px thin black;
 }
 
 section.tabuleiro-divs__column{
-   width: 40px;
+   width: 30px;
    height: 240px;
    display: flex;
    flex-direction: column;
 }
 
 div.tabuleiro-divs__divs{
-   width: 40px;
-   height: 40px;
+   width: 30px;
+   height: 30px;
    display: flex;
    justify-content: center;
    align-items: center;
@@ -97,15 +99,16 @@ footer {
 
 .startSection{
     position: absolute;
+    height: 400px;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: white;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  
 }
 .startSection button{
     padding: 10px 20px;
@@ -115,6 +118,30 @@ footer {
     font-weight: bold;
     text-transform: uppercase;
 }
+
+main .startSection--jogadores{
+    width: 80%;   
+}
+/* main .startSection--jogador{
+ width: 100%;  
+ height: 300px;
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ 
+ 
+ 
+} */
+main .startSection--jogador h2{
+    font-family: Pacifico, cursive;
+    -webkit-text-stroke: 1px black;
+    color:white;
+    width: 100%;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin: 15px 0;
+}
 .startSection--jogadores{
     display: flex;
     flex-direction: column;
@@ -123,25 +150,28 @@ footer {
     margin: 15px 0;
 }
 .startSection--jogador{
+
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    background: rgba( 3, 0, 0, 0.5 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 0px );
+    -webkit-backdrop-filter: blur( 0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
 }
-.startSection--jogador h2{
-    font-size: 30px;
-    font-weight: bold;
-    text-align: center;
-    margin: 15px 0;
-}
+
+
 .startSection--option{
-    width: 60px;
+    width: 100px;
+    height: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 5px 0;
-    padding: 15px;
+    
     border-radius: 10px;
 }
 .section--select--first{
@@ -153,38 +183,55 @@ footer {
     background-color: lightcoral;
 }
 .section--noselect{
-    border: 1px solid gray;
+    
     background-color: transparent;
 }
 
 
 .option--gryffindor{
-    background-color: rgb(173, 0, 0);
+    background-image:url('../img/grifinoria.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 25px 10px rgb(219, 19, 19); 
+    box-shadow: 0px 0px 25px 10px rgb(219, 19, 19);
 }
 .option--slytherin{
-    background-color: black;
+    background-image:url('../img/sonserina.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 25px 10px rgb(16, 71, 14); 
+    box-shadow: 0px 0px 25px 10px rgb(16, 71, 14);
 }
 .option--hufflepuff{
-    background-color: green;
+    background-image:url('../img/lufa-lufa.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 25px 10px rgb(219, 219, 106); 
+    box-shadow: 0px 0px 25px 10px rgb(219, 219, 106);
 }
 .option--ravenclaw{
-    background-color: gray;
+    background-image:url('../img/corvinal.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 25px 10px #380f99; 
+    box-shadow: 0px 0px 25px 10px #380f99; 
 }
-
-
-
 .sectionVictory{
     position: absolute;
     top: 0;
@@ -207,7 +254,7 @@ footer {
     align-items: center;
 }
 .sectionVictory h1{
-    font-size: 40px;
+    font-size: 30px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
@@ -250,15 +297,32 @@ footer {
     body {
         background-image: url("../img/map-desktop.jpg");
         background-repeat: no-repeat;
+        background-size: 100%;
+    }
+  
+    main {
+        height: 400px;
+        background: rgba( 25, 24, 24, 0.7 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 0px );
+        -webkit-backdrop-filter: blur( 0px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
         background-size: 100% 150%;
     }
+  
     main .jogador {
         margin: 25px auto;
     }
+  
     footer {
-        position: relative;
+        
+        
+    }
+
     }
     #footer-content {
+        position: relative;
         color: white;
         background: black;
         opacity: 0.5;
