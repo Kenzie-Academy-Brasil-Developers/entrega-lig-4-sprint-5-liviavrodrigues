@@ -273,6 +273,12 @@ function vitoria(tabuleiro){
         displayVitoria.querySelector("h1").textContent = `Você venceu ${JOGADOR_ATUAL}!!`
 
         return true;
+    } else if(empate(tabuleiro)){
+        const displayVitoria = document.querySelector(".sectionVictory");
+        displayVitoria.classList.remove("display--none");
+        displayVitoria.classList.add("section--visible");
+
+        displayVitoria.querySelector("h1").textContent = `Empatou !!!`
     }
     else{
         return false;
