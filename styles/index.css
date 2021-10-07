@@ -12,6 +12,9 @@ body {
 }
 
 header h1 {
+    background-color: black;
+    padding: 3vh 0;
+    opacity: 0.4;
     margin: 2vh 0 0 0;
     font-size: 5.5vh;
     font-weight: bolder;
