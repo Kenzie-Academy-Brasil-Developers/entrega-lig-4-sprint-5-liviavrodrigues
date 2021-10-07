@@ -63,7 +63,7 @@ document.querySelector(".startSection button").addEventListener("click", () => {
     if (JOGADORES["jogador1"] !== "" && JOGADORES["jogador2"] !== "") {
         JOGADOR_ATUAL = "jogador1"
         let txtJogador = document.querySelector(".jogador")
-        txtJogador.innerHTML = `Jogue: ${JOGADOR_ATUAL} <div class="${JOGADORES[JOGADOR_ATUAL]}"></div>`
+        txtJogador.innerHTML = `<div class="${JOGADORES[JOGADOR_ATUAL]}"></div>`
 
         start()
     }
@@ -98,7 +98,7 @@ function jogar(section) {
                 }
 
                 let txtJogador = document.querySelector(".jogador")
-                txtJogador.innerHTML = `Jogue: ${JOGADOR_ATUAL} <div class="${JOGADORES[JOGADOR_ATUAL]}"></div>`
+                txtJogador.innerHTML = `<div class="${JOGADORES[JOGADOR_ATUAL]}"></div>`
             }
 
             break
@@ -270,7 +270,7 @@ function vitoria(tabuleiro) {
         displayVitoria.classList.add("section--visible")
         displayVitoria.firstElementChild.className = `victory--${JOGADORES[JOGADOR_ATUAL]}`
 
-        displayVitoria.querySelector("h1").textContent = `Você venceu ${JOGADOR_ATUAL}!!`
+        displayVitoria.querySelector("h1").textContent = `Você venceu !!`
 
         return true;
     } else if(empate(tabuleiro)){
@@ -323,6 +323,9 @@ function reset() {
 
     const sectionStart = document.querySelector(".startSection")
     sectionStart.style.display = "flex"
+    
+    let txtJogador = document.querySelector(".jogador")
+    txtJogador.innerHTML = ``
 
     let sectionOption = document.querySelector(".startSection--jogador .section--select--first");
     sectionOption.classList.remove("section--select--first")
@@ -340,35 +343,7 @@ function reset() {
 
 }
 
-/*
-function reset() {
-    let colunasTabuleiro = document.getElementsByClassName("tabuleiro-divs__column")
-    for(let i = 6; i >= 0; i--){
-        colunasTabuleiro[i].parentNode.removeChild(colunasTabuleiro[i]);
-    }
-    let txtJogador = document.querySelector(".jogador")
-    txtJogador.innerHTML = ``
-    const sectionStart = document.querySelector(".startSection")
 
-    tabuleiro =
-    [
-        '      ',
-        '      ',
-        '      ',
-        '      ',
-        '      ',
-        '      ',
-        '      ',]
-
-
-    JOGADORES = {"jogador1": "", "jogador2": ""}
-    JOGADOR_ATUAL = "";
-    sectionStart.style.display = "flex";
-    buttonRestart.style.display = "none";
-
-
-}
-*/
 const hit = new Audio()
 hit.src = "../song/magic.mp3"
 hit.volume = 0.05
