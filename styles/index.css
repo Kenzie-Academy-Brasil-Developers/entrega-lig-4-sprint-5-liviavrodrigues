@@ -292,11 +292,8 @@ main .startSection--jogadores{
 }
 .section--visible{
     display: flex;
+    color:white;
 }
-
-
-
-
 
 .victory--option--gryffindor{
     background-image:url('../img/grifinoria.jpg');
