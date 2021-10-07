@@ -31,7 +31,7 @@ document.querySelector(".startSection--jogadores").addEventListener("click", (ev
     }
 
     if (option !== undefined) {
-        if(JOGADORES["jogador1"] === ""){
+        if(JOGADORES["jogador1"] === "" && JOGADORES["jogador2"] !== option.className){
             let sectionOption = option.closest("div.startSection--option")
             sectionOption.classList.remove("section--noselect")
             sectionOption.classList.add("section--select--first")
