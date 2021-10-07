@@ -197,7 +197,6 @@ footer {
 .sectionVictory article{
     width: 80%;
     height: 400px;
-    background-color: rgb(255, 255, 255);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -224,6 +223,24 @@ footer {
 .section--visible{
     display: flex;
 }
+
+
+
+
+
+.victory--option--gryffindor{
+    background-color: rgb(245, 102, 102);
+}
+.victory--option--slytherin{
+    background-color: rgb(88, 88, 88);
+}
+.victory--option--hufflepuff{
+    background-color: lightgreen;
+}
+.victory--option--ravenclaw{
+    background-color: rgb(209, 209, 209);
+}
+
 
 @media only screen and (min-width: 600px) {
     body {

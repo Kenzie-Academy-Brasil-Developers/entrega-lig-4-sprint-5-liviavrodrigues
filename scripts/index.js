@@ -266,8 +266,9 @@ function vitoria(tabuleiro) {
         vitoriaDiagonalEsquerda()
     ) {
         const displayVitoria = document.querySelector(".sectionVictory");
-        displayVitoria.classList.remove("display--none");
-        displayVitoria.classList.add("section--visible");
+        displayVitoria.classList.remove("display--none")
+        displayVitoria.classList.add("section--visible")
+        displayVitoria.firstElementChild.className = `victory--${JOGADORES[JOGADOR_ATUAL]}`
 
         displayVitoria.querySelector("h1").textContent = `Você venceu ${JOGADOR_ATUAL}!!`
 
