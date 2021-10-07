@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
+audio {
+    display: block;
+}
+
 body {
     background-image: url("../img/map-phone.jpg");
     background-size: auto;
