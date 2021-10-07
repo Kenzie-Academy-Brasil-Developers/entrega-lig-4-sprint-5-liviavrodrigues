@@ -1,10 +1,22 @@
-header h1 {
-    font-size: 30px;
-    text-align: center;
-    margin-top: 15px; 
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+body {
+    background-image: url("../img/map-phone.jpg");
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
-main{
+header h1 {
+    margin: 2vh 0 0 0;
+    font-size: 5.5vh;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    font-family: 'Pacifico', cursive;
+    -webkit-text-stroke: 1px black;
+}
+main {
     width:100%;
     height: 600px;
     display: flex;
@@ -14,20 +26,25 @@ main{
     position: relative;
 }
 
-main .jogador{
-    margin: 30px 0;
-    font-size: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
+main .jogador {
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    color: white;
+    font-weight: bolder;
+    -webkit-text-stroke: 1px black;
+    font-family: 'Pacifico', cursive;
+    font-size: 6vh;
+    margin: 10vh 0 0 0;
+    text-transform: uppercase;
+    flex-direction: column;
+    align-items:center;
+    text-align: center;
 }
 
 article#tabuleiro-divs{
    width: 280px;
    display: flex;
    flex-wrap: wrap;
+   margin: 5vh 0 0 0;
 }
 
 section.tabuleiro-divs__column{
@@ -43,8 +60,11 @@ div.tabuleiro-divs__divs{
    display: flex;
    justify-content: center;
    align-items: center;
-   border: 2px solid black;
-   background-color: aqua;
+   background: rgba( 255, 255, 255, 0.1 );
+    box-shadow: 0 8px 32px 0 burlywood;
+    backdrop-filter: blur( 1px );
+    -webkit-backdrop-filter: blur( 1px );
+    border: 2px solid rgba( 255, 255, 255, 0.18 );
 }
 
 footer {
@@ -56,16 +76,11 @@ footer {
 }
 
 #footer-content {
-    background-color: #ccc;
-    border: 1px solid #6b6d7c;
-    font-size: 10px;
-    height: 25px; 
+    background-color: #ffe4b5;
+    border: 1px solid #f4a460;
+    font-size: 4vh;
     padding-top: 8px;
 }
-
-
-
-
 
 main .startSection{
     position: absolute;
@@ -173,4 +188,33 @@ main .startSection--option{
 }
 .section--visible{
     display: flex;
+}
+
+@media only screen and (min-width: 600px) {
+    body {
+        background-image: url("../img/map-desktop.jpg");
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    main {
+        height: 400px;
+    }
+    main .jogador {
+        margin: 25px auto;
+    }
+    footer {
+        position: relative;
+        top: 110px;
+    }
+    #footer-content {
+        background: #d3d3d3;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    header h1 {
+        font-size: 75px;
+    }   
+    main .jogador {
+        font-size: 50px;
+    }
 }
