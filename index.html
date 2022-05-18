@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <title>The Azkaban Lig-4</title>
+</head>
+<body>
+    <audio autoplay loop>
+        <source src="song/theme.mp3" type="audio/mp3">
+    </audio>
+    <header>
+        <h1>
+            The Azkaban Lig-4
+        </h1>
+    </header>
+    <main>
+        <h1 class="jogador"></h1>
+        <article id = 'tabuleiro-divs'></article>
+        <section class="startSection">
+            <div class="startSection--jogadores">
+                <div class="startSection--jogador">
+                    <h2>Casa dos Jogadores</h2>
+                    <div class="startSection--option section--noselect">
+                        <div class="option--gryffindor"></div>
+                    </div>
+                    <div class="startSection--option section--noselect">
+                        <div class="option--slytherin"></div>
+                    </div>
+                    <div class="startSection--option section--noselect">
+                        <div class="option--hufflepuff"></div>
+                    </div>
+                    <div class="startSection--option section--noselect">
+                        <div class="option--ravenclaw"></div>
+                    </div>
+                </div>
+            </div>
+            <button>Começar</button>
+        </section>
+        <footer>
+            <div id="footer-content">
+                Developed by The Azkaban Developers
+            </div>
+        </footer>
+    </main>
+    <section class="sectionVictory display--none">
+        <article>
+            <h1>Venceu !!!</h1>
+            <button>De novo</button>
+        </article>
+    </section>
+    <script src="scripts/index.js"></script>
+</body>
+</html>
